@@ -12,8 +12,8 @@ sio = socketio.Server(cors_allowed_origins='*', async_mode='eventlet')
 app = socketio.WSGIApp(sio)
 
 # MediaPipe Setup
-mp_hands = mp.solutions.hands
-mp_drawing = mp.solutions.drawing_utils
+from mediapipe.python.solutions import hands as mp_hands
+from mediapipe.python.solutions import drawing_utils as mp_drawing
 hands = mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=2,
