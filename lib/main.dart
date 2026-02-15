@@ -13,6 +13,7 @@ import 'visual_modes/morph_mode.dart';
 import 'visual_modes/cube_3d_mode.dart';
 import 'visual_modes/sphere_3d_mode.dart';
 import 'hand_tracking/hand_tracking_service.dart';
+import 'hand_tracking/web_capture_service.dart';
 
 void main() {
   runApp(
@@ -56,6 +57,7 @@ class _GestureLabHomeState extends State<GestureLabHome> {
   ];
 
   late HandTrackingService _trackingService;
+  late WebCaptureService _webCaptureService;
 
   @override
   void initState() {
@@ -63,10 +65,14 @@ class _GestureLabHomeState extends State<GestureLabHome> {
     final gestureState = Provider.of<GestureState>(context, listen: false);
     _trackingService = HandTrackingService(gestureState);
     _trackingService.connect();
+    
+    _webCaptureService = WebCaptureService(_trackingService);
+    _webCaptureService.initialize();
   }
 
   @override
   void dispose() {
+    _webCaptureService.dispose();
     _trackingService.dispose();
     super.dispose();
   }

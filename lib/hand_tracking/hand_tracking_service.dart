@@ -12,7 +12,7 @@ class HandTrackingService {
 
   void connect() {
     // Connect to the Python bridge - Use local network IP for mobile support
-    // Replace with your actual IP which we found is 192.168.1.7
+    // Replace with your actual IP or Render URL
     const String serverUrl = 'http://192.168.1.7:5050';
     
     socket = IO.io(serverUrl, <String, dynamic>{
@@ -22,7 +22,6 @@ class HandTrackingService {
 
     socket.onConnect((_) {
       print('✅ Connected to Hand Tracking Bridge at $serverUrl');
-      print('👋 Show your hands to the camera!');
     });
 
     socket.on('hand_update', (data) {
@@ -42,12 +41,7 @@ class HandTrackingService {
           }
         }
         
-        if (hands.isNotEmpty) {
-          gestureState.updateFromHands(hands, screenSize: screenSize);
-        } else {
-          // No hands detected, still triggers auto-demo mode internally if hands empty
-          gestureState.updateFromHands([], screenSize: screenSize);
-        }
+        gestureState.updateFromHands(hands, screenSize: screenSize);
       }
     });
 
@@ -58,13 +52,17 @@ class HandTrackingService {
       }
     });
 
-    socket.onDisconnect((_) {
-      print('❌ Disconnected from Hand Tracking Bridge');
-    });
-    
-    socket.onError((error) {
-      print('⚠️ Socket error: $error');
-    });
+    socket.onDisconnect((_) => print('❌ Disconnected from Bridge'));
+    socket.onError((error) => print('⚠️ Socket error: $error'));
+  }
+
+  void sendFrame(String base64Image) {
+    if (socket.connected) {
+      socket.emit('process_frame', {
+        'image': base64Image,
+        'want_preview': true, // We want the processed frame back for HUD
+      });
+    }
   }
 
   void updateScreenSize(Size size) {
@@ -75,3 +73,4 @@ class HandTrackingService {
     socket.dispose();
   }
 }
+
