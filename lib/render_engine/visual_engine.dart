@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import '../gesture_engine/gesture_state.dart';
 import '../visual_modes/visual_mode.dart';
 import '../visual_modes/geometry_mode.dart';
