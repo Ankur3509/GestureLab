@@ -53827,8 +53827,8 @@ s.c=B.j
 s.d=0.5
 s.ap()}}
 A.PD.prototype={
-pk(){var s,r,q,p,o,n=this,m="http://192.168.1.7:5050",l=null,k="query",j=t.N,i=t.z,h=A.Y(["transports",A.d(["websocket"],t.s),"autoConnect",!0],j,i),g=A.f4(m,0,l),f=g.ghQ()+"://"+g.gkO()+":"+g.gl9(),e=g.geh(),d=$.a5c.N(f)&&$.a5c.h(0,f).d.N(e),c=J.c(h.h(0,"forceNew"),!0)||J.c(h.h(0,"force new connection"),!0)||!1===h.h(0,"multiplex")||d,b=A.cj()
-if(c){$.agV().a_(B.k,"ignoring socket cache for http://192.168.1.7:5050",l,l)
+pk(){var s,r,q,p,o,n=this,m="https://gesture-lab-backend.onrender.com",l=null,k="query",j=t.N,i=t.z,h=A.Y(["transports",A.d(["websocket"],t.s),"autoConnect",!0],j,i),g=A.f4(m,0,l),f=g.ghQ()+"://"+g.gkO()+":"+g.gl9(),e=g.geh(),d=$.a5c.N(f)&&$.a5c.h(0,f).d.N(e),c=J.c(h.h(0,"forceNew"),!0)||J.c(h.h(0,"force new connection"),!0)||!1===h.h(0,"multiplex")||d,b=A.cj()
+if(c){$.agV().a_(B.k,"ignoring socket cache for https://gesture-lab-backend.onrender.com",l,l)
 b.b=A.aba(h,m)}else{s=$.a5c.h(0,f)
 if(s==null){s=A.aba(h,m)
 $.a5c.l(0,f,s)}b.b=s}if(g.glb().length!==0&&h.h(0,k)==null)h.l(0,k,g.glb())
@@ -53853,7 +53853,7 @@ n.a.da("camera_frame",new A.PG(n))
 n.a.da("disconnect",new A.PH())
 n.a.d.da("error",new A.PI())}}
 A.PE.prototype={
-$1(a){A.Kh("\u2705 Connected to Hand Tracking Bridge at http://192.168.1.7:5050")},
+$1(a){A.Kh("\u2705 Connected to Hand Tracking Bridge at https://gesture-lab-backend.onrender.com")},
 $S:5}
 A.PF.prototype={
 $1(a){var s,r,q,p,o,n,m,l,k,j,i=t.j
