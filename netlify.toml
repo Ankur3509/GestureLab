@@ -1,6 +1,6 @@
 [build]
   publish = "build/web"
-  command = "flutter build web --release"
+  command = "exit 0" # We handle the build in GitHub Actions for speed
 
 [[redirects]]
   from = "/*"
