@@ -13,7 +13,7 @@ class HandTrackingService {
   void connect() {
     // Connect to the Python bridge - Use local network IP for mobile support
     // Replace with your actual IP or Render URL
-    const String serverUrl = 'http://192.168.1.7:5050';
+    const String serverUrl = 'https://gesture-lab-backend.onrender.com';
     
     socket = IO.io(serverUrl, <String, dynamic>{
       'transports': ['websocket'],
