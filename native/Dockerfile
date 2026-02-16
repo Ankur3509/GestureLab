@@ -14,7 +14,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY native/ .
+COPY . .
 
 # Port is provided by Render
 ENV PORT=5050
